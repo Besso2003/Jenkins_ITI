@@ -12,6 +12,9 @@
 - Create the same with jenkinsfile in your branches as multibranch pipeline
 
 ## Lab 2 — Jenkins Pipelines
+
+## 📌 Objectives
+
 - Configure Jenkins image to run docker commands on your host docker daemon
 - Create CI/CD for this repo https://github.com/mahmoud254/jenkins_nodejs_example.git
 - Create ec2 in aws and configure it as Jenkins slave
