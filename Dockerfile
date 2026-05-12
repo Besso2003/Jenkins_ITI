@@ -7,7 +7,9 @@ RUN apt-get update -qq && \
     apt-get install -y \
     ca-certificates \
     curl \
-    gnupg
+    gnupg \
+    wget \
+    unzip
 
 # Add Docker official GPG key
 RUN install -m 0755 -d /etc/apt/keyrings && \
@@ -23,6 +25,12 @@ RUN echo \
 # Install Docker CLI
 RUN apt-get update -qq && \
     apt-get install -y docker-ce-cli
+
+# Install Terraform
+RUN wget https://releases.hashicorp.com/terraform/1.6.6/terraform_1.6.6_linux_amd64.zip && \
+    unzip terraform_1.6.6_linux_amd64.zip && \
+    mv terraform /usr/local/bin/ && \
+    rm terraform_1.6.6_linux_amd64.zip
 
 # Add jenkins user to docker group
 RUN groupadd docker && usermod -aG docker jenkins
